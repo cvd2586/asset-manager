@@ -1,13 +1,22 @@
 class AssetsController < ApplicationController
 
   def index
-    # TODO Add code to load all assets
-    # @assets = Asset.all
+    @assets = Asset.all
   end
 
   def new
-    # TODO add code to add a new asset
-    # @asset = Asset.new
+    @asset = Asset.new
   end
-  
+
+  def create
+    Asset.create(asset_params)
+    redirect_to root_path
+  end
+
+  private
+
+  def asset_params
+    params.require(:asset).permit(:name, :description)
+  end
+
 end
