@@ -8,11 +8,21 @@
   </div>
 </div>
 <h2>Assets</h2>
-<% @assets.each do |asset| %>
-  <div>
-    <h3><%= asset.name %></h3><br />
-    <p><%= asset.description %></p><br />
-  </div>
-
-  <hr />
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assets.each do |asset| %>
+      <tr>
+        <th><%= asset.id %></th>
+        <th><%= asset.name %></th>
+        <th><%= asset.description %></th>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>

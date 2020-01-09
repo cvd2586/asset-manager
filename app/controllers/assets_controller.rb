@@ -9,8 +9,13 @@ class AssetsController < ApplicationController
   end
 
   def create
-    Asset.create(asset_params)
-    redirect_to root_path
+    @asset = Asset.create(asset_params)
+    if @asset.invalid?
+      flash[:error] = "<strong>Could not save asset</strong>"
+      redirect_to new_asset_path
+    else
+      redirect_to root_path
+    end
   end
 
   private

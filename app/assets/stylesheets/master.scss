@@ -1,6 +1,9 @@
 @import "bootstrap";
 @import "font-awesome";
 
+// TODO add a HEX color of choice for errors
+$error-field-color: #d91e18;
+
 booyah-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -30,4 +33,21 @@ body {
 
 .nav-link {
   margin-right: 10px;
+}
+
+.new_asset {
+  .errors {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: $error-field-color;
+    font-size: 10px;
+  }
+}
+
+.asset_name {
+  abbr {
+    color: $error-field-color;
+  }
 }
