@@ -1,0 +1,9 @@
+<div class="content-title booyah-box col-10 offset-1">
+  <h1>Enter Your Asset Details</h1>
+    <%= simple_form_for @asset do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <br />
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <% end %>
+</div>
