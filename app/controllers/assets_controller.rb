@@ -8,6 +8,9 @@ class AssetsController < ApplicationController
     @asset = Asset.new
   end
 
+  def show
+  end
+
   def create
     @asset = Asset.create(asset_params)
     if @asset.invalid?
@@ -21,7 +24,7 @@ class AssetsController < ApplicationController
   private
 
   def asset_params
-    params.require(:asset).permit(:name, :description)
+    params.require(:asset).permit(:name, :description, images_attributes: [:photo])
   end
 
 end

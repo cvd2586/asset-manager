@@ -68,6 +68,10 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'carrierwave', '~> 2.0'
+gem 'figaro'
+gem 'fog-aws'
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

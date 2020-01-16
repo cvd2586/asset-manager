@@ -3,9 +3,12 @@
   <%= simple_form_for @asset do |f| %>
     <%= f.input :name, required: true %>
     <%= f.input :description %>
+    <%= f.simple_fields_for :photos, Photo.new do |image_form|%>
+          <%= image_form.file_field :photo, multiple: true, name: "item[images_attributes][][photo]"%>
+    <% end %>
 
     <% if flash[:error].present? %>
-      <div class="errors">      
+      <div class="errors">
         <%= flash[:error].html_safe %>
       </div>
     <% end %>
