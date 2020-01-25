@@ -31,8 +31,22 @@ body {
   margin-right: 10px;
 }
 
+.navbar {
+  justify-content: normal;
+}
+
 .navbar-nav {
   flex-direction: row;
+}
+
+.navbar-toggler {
+    margin-left: 15px;
+    position: absolute;
+}
+
+.navbar-toggler-right {
+    position: absolute;
+    right: 1rem;
 }
 
 .nav-link {
