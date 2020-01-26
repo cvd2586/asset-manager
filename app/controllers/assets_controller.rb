@@ -28,8 +28,12 @@ class AssetsController < ApplicationController
 
   def update
     asset = Asset.find(params[:id])
-    asset.user = User.find(params[:asset][:user])
-    asset.save()
+    user_id = params[:asset][:user]
+    if user_id != "-1"
+      asset.user = User.find(user_id)    
+      asset.save()
+    end
+    
     redirect_to root_path
   end
 
