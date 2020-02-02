@@ -24,31 +24,31 @@
         <td><%= asset.id %></td>
         <td><%= asset.name %></td>
         <td><%= asset.description %></td>
-        <td> 
-          <% asset.images != nil %>         
+        <td>
+          <% if asset.images != nil && asset.images.length > 0 && asset.images[0] != nil %>
             <img class="img-fluid asset-image" src="<%= asset.images[0].path %>" />
-          <% %>         
+          <% end %>
         </td>
         <td>
           <%= simple_form_for asset, wrapper_html: { class: 'form-horizontal' } do |f| %>
             <div class="row">
               <div class="col">
-                <%= 
+                <%=
                   f.input :user,
                   label: false,
-                  collection: (@users.map { |r| [r.id, r.email] }).concat([[-1, "Unassigned"]]), 
-                  label_method: :second, 
+                  collection: (@users.map { |r| [r.id, r.email] }).concat([[-1, "Unassigned"]]),
+                  label_method: :second,
                   value_method: :first,
                   selected: asset.user ? @users.index { |x| x.email == asset.user.email } + 1 : -1
                 %>
               </div>
               <div class="col">
                 <%= f.submit 'Assign', class: 'btn btn-primary' %>
-              </div>  
-            </div>                     
+              </div>
+            </div>
           <% end %>
         </td>
       </tr>
-    <% end %>    
+    <% end %>
   </tbody>
 </table>

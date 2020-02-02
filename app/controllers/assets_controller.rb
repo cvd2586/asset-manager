@@ -11,7 +11,7 @@ class AssetsController < ApplicationController
 
   def create
     # FOR-IMAGE-UPLOAD
-    @asset = Asset.new(asset_params)    
+    @asset = Asset.new(asset_params)
     if @asset.invalid?
       flash[:error] = "<strong>Could not save asset</strong>"
       redirect_to new_asset_path
@@ -21,19 +21,19 @@ class AssetsController < ApplicationController
         redirect_to root_path
       else
         redirect_to new_asset_path
-      end 
-    end 
-    # FOR-IMAGE-UPLOAD   
+      end
+    end
+    # FOR-IMAGE-UPLOAD
   end
 
   def update
     asset = Asset.find(params[:id])
     user_id = params[:asset][:user]
     if user_id != "-1"
-      asset.user = User.find(user_id)    
+      asset.user = User.find(user_id)
       asset.save()
     end
-    
+
     redirect_to root_path
   end
 
