@@ -3,9 +3,15 @@
   <%= simple_form_for @asset do |f| %>
     <%= f.input :name, required: true %>
     <%= f.input :description %>
-    <%= f.simple_fields_for :photos, Photo.new do |image_form|%>
-          <%= image_form.file_field :photo, multiple: true, name: "item[images_attributes][][photo]"%>
-    <% end %>
+  
+    <%# # FOR-IMAGE-UPLOAD %>
+    <%= f.fields_for :images, Image.new do |i| %>
+     <div class="field">
+      <%= i.file_field :path, :multiple => true, name: "images[path][]" %> 
+     </div>
+    <% end %>   
+    <%# # FOR-IMAGE-UPLOAD %>
+
 
     <% if flash[:error].present? %>
       <div class="errors">
@@ -13,7 +19,7 @@
       </div>
     <% end %>
 
-    <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <%= f.submit 'Create', class: 'btn btn-primary mt-4' %>
   <% end %>
   <%= yield %>
 </div>
