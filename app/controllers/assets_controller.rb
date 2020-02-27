@@ -10,9 +10,12 @@ class AssetsController < ApplicationController
   end
 
   def create
-    # FOR-IMAGE-UPLOAD
-    @asset = Asset.new(asset_params)
-    if @asset.invalid?
+    if current_user.auth_code != "AUTH:XYZ"
+     flash[:error] = 'Not permitted'
+     redirect_to root_path
+    else
+      @asset = Asset.new(asset_params)
+      if @asset.invalid?
       flash[:error] = "<strong>Could not save asset</strong>"
       redirect_to new_asset_path
     else
@@ -23,6 +26,7 @@ class AssetsController < ApplicationController
         redirect_to new_asset_path
       end
     end
+  end
     # FOR-IMAGE-UPLOAD
   end
 
