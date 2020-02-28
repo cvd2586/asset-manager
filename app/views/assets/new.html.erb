@@ -1,4 +1,4 @@
-<div class="content-title booyah-box col-10 offset-1">
+<div booyah-box col-10 offset-1">
   <h1>Enter Your Asset Details</h1>
   <%= simple_form_for @asset do |f| %>
     <%= f.input :name, required: true %>
@@ -6,13 +6,13 @@
     <%# # FOR-IMAGE-UPLOAD %>
     <%= f.fields_for :images, Image.new do |i| %>
      <div class="field">
-      <%= i.file_field :path, :multiple => true, name: "images[path][]" %> 
+      <%= i.file_field :path, :multiple => true, name: "images[path][]" %>
      </div>
-    <% end %>   
+    <% end %>
     <%# # FOR-IMAGE-UPLOAD %>
 
     <% if flash[:error].present? %>
-      <div class="errors">      
+      <div class="errors">
         <%= flash[:error].html_safe %>
       </div>
     <% end %>

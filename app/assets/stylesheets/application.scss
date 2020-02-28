@@ -29,7 +29,7 @@
 
 .sidebar {
   position: fixed;
-  top: 30px;
+  top: 3px;
   bottom: 0;
   left: 0;
   z-index: 100; /* Behind the navbar */
@@ -96,10 +96,10 @@
  */
 
 .navbar-brand {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
   font-size: 1rem;
-  font-size: 36px;
+  font-size: 25px;
 }
 
 .navbar .form-control {
