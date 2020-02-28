@@ -1,4 +1,5 @@
 class AssetsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @assets = Asset.all
@@ -7,6 +8,9 @@ class AssetsController < ApplicationController
 
   def new
     @asset = Asset.new
+  end
+
+  def show
   end
 
   def create
